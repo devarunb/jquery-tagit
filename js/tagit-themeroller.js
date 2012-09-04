@@ -1,9 +1,11 @@
 /*
  * INFORMATION
- * ---------------------------
- * Owner:     jquery.webspirited.com
- * Developer: Matthew Hailwood
- * ---------------------------
+ * -----------------------------------
+ * Owner:       jquery.webspirited.com
+ * Developer:   Matthew Hailwood
+ * 
+ * Modified by: Zach Snow
+ * -----------------------------------
  */
 
 (function ($) {
@@ -279,6 +281,11 @@
             if (label == "")
                 return false;
 
+            if(!this.options.caseSensitive){
+                label = label ? label.toLowerCase() : label;
+                value = value ? value.toLowerCase() : value;
+            }
+            
             var tagExists = this._exists(label, value);
             if (tagExists !== false) {
                 this._highlightExisting(tagExists);
